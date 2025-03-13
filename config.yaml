@@ -1,0 +1,29 @@
+data:
+  train_path: "data/train"
+  test_path: "data/test"
+  image_size: [640, 640]
+  batch_size: 16
+  num_workers: 4
+
+model:
+  name: "yolov8"  # Options: yolov8, resnet50_fasterrcnn, resnet50_retinanet
+  pretrained: true
+  num_classes: 80  # Update based on your dataset
+
+training:
+  epochs: 50
+  learning_rate: 0.001
+  optimizer: "AdamW"
+  scheduler: "CosineAnnealingLR"
+  early_stopping_patience: 5
+
+augmentation:
+  horizontal_flip_prob: 0.5
+  vertical_flip_prob: 0.5
+  brightness_contrast_prob: 0.5
+  brightness_limit: 0.2
+  contrast_limit: 0.2
+
+output:
+  save_dir: "outputs"
+  submission_file: "submission.csv" 
